@@ -3,6 +3,7 @@ import { signOut } from "@/lib/actions/auth-actions";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type Session = typeof auth.$Infer.Session;
 
@@ -32,12 +33,16 @@ export default function DashboardClientPage({ session }: { session: Session }) {
               </div>
               <div className="flex items-center space-x-3">
                 <div className="flex items-center space-x-3">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={
+                  <Image
+                      alt="Profile Image"
+                      // src={products.data[0].images[0]}
+                       src={
                       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                    }
-                  />
+                      }
+                      className="h-10 w-10 rounded-full"
+                      width={450}
+                      height={450}
+                    />
                   <div className="text-sm">
                     <p className="text-gray-900 font-medium">{user.name}</p>
                     <p className="text-gray-500">{user.email}</p>
